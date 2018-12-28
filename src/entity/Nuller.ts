@@ -9,9 +9,9 @@ export class Nuller extends BaseEntity {
   @Column("text")
   domain: string;
 
-  @Column()
+  @Column({ nullable: true })
   ip: string;
 
-  @Column()
+  @Column({ nullable: true })
   license: string;
 }
