@@ -1,6 +1,7 @@
 import { IResolvers } from "graphql-tools";
 import * as argon2 from "argon2";
 import * as nodemailer from 'nodemailer';
+import { v4 as uuid } from 'uuid';
 
 import { User } from "./entity/User";
 import { License } from "./entity/License";
@@ -88,11 +89,9 @@ export const resolvers: IResolvers = {
         }  
       }
 
-      const hashedDomain = await argon2.hash(domain);
-
       return await License.create({
         domain,
-        license: hashedDomain,
+        license: uuid(),
         used: true
       }).save();
     },
