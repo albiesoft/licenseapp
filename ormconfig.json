@@ -1,12 +1,11 @@
 {
    "type": "postgres",
-   "host": "localhost",
-   "port": 5432,
-   "username": "albiesoft",
-   "password": "Alejandra2013",
-   "database": "lcn_db",
+   "url": "postgres://wsbfdrgewkyloc:953a2f573166cdb11d2b1eb5274df4b89f37603342f88515a7720d514345cbda@ec2-54-247-74-131.eu-west-1.compute.amazonaws.com:5432/df7jcffv482igb",
    "synchronize": true,
    "logging": false,
+   "extra": {
+      "ssl": true,
+   },
    "entities": [
       "src/entity/**/*.ts"
    ],
