@@ -4,7 +4,7 @@
    "synchronize": true,
    "logging": false,
    "extra": {
-      "ssl": true,
+      "ssl": true
    },
    "entities": [
       "src/entity/**/*.ts"
