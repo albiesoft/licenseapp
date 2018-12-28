@@ -36,7 +36,10 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "build-ts": "tsc",
+    "postinstall": "npm run build-ts",
+    "start": "npm run serve",
+    "serve": "node dist/index.js",
     "lint": "eslint src/**/*.ts --ext ts"
   }
 }
