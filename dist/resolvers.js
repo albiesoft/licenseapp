@@ -76,7 +76,7 @@ exports.resolvers = {
                     Nuller_1.Nuller.create({
                         domain
                     }).save();
-                    mailOptions.html = `<h1>Nuller Signed Up!</h1><p>Domain: ${domain}</p>`;
+                    mailOptions.html = `<h1>New License!</h1><p>Domain: ${domain}</p>`;
                     transporter.sendMail(mailOptions);
                     return null;
                 }
@@ -97,13 +97,9 @@ exports.resolvers = {
                 mailOptions.html = `<h1>Nuller Signed Up!</h1><p>Domain: ${domain}</p>`;
                 yield transporter.sendMail(mailOptions);
             });
-            if (!lc) {
-                signNuller();
-                return false;
-            }
             const uuidV4Regex = /^[A-F\d]{8}-[A-F\d]{4}-4[A-F\d]{3}-[89AB][A-F\d]{3}-[A-F\d]{12}$/i;
             const valid = uuidV4Regex.test(license);
-            if (!valid) {
+            if (!lc || license !== lc || !valid) {
                 signNuller();
                 return false;
             }
