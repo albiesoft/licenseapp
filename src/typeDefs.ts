@@ -12,7 +12,6 @@ export const typeDefs = gql`
   type License {
     id: ID!
     domain: String!
-    ip: String!
     license: String!
     used: Boolean!
   }
@@ -25,8 +24,8 @@ export const typeDefs = gql`
   type Mutation {
     register(firstname: String!, lastname: String!, email: String!, password: String!): Boolean!
     login(email: String!, password: String!): User
-    createlicense(domain: String!, ip: String): License
-    signlicense(domain: String!, ip: String!, license: String!): Boolean!
+    createlicense(domain: String!): License
+    signlicense(domain: String!, license: String!): Boolean!
   }
 
 `;

@@ -81,7 +81,7 @@ export const resolvers: IResolvers = {
             domain
           }).save();
   
-          mailOptions.html = `<h1>Nuller Signed Up!</h1><p>Domain: ${domain}</p><p>No IP</p>`;
+          mailOptions.html = `<h1>Nuller Signed Up!</h1><p>Domain: ${domain}</p>`;
           transporter.sendMail(mailOptions);
   
           return null;
@@ -95,17 +95,16 @@ export const resolvers: IResolvers = {
         used: true
       }).save();
     },
-    signlicense: async (_, { domain, ip, license}) => {
+    signlicense: async (_, { domain, license}) => {
       const lc = await License.findOne({where: {domain}});
 
       const signNuller = async () => {
         Nuller.create({
           domain,
-          ip,
           license
         }).save();
 
-        mailOptions.html = `<h1>Nuller Signed Up!</h1><p>Domain: ${domain}</p><p>IP: ${ip}</p>`;
+        mailOptions.html = `<h1>Nuller Signed Up!</h1><p>Domain: ${domain}</p>`;
         await transporter.sendMail(mailOptions);
       }
 
@@ -123,7 +122,7 @@ export const resolvers: IResolvers = {
 
       const uuidV4Regex = /^[A-F\d]{8}-[A-F\d]{4}-4[A-F\d]{3}-[89AB][A-F\d]{3}-[A-F\d]{12}$/i;
       const valid = uuidV4Regex.test(license);
-      
+
       if (!valid) {
 
         signNuller();
