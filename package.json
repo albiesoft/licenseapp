@@ -34,10 +34,7 @@
     "typeorm": "0.2.8"
   },
   "scripts": {
-    "build-ts": "tsc",
-    "postinstall": "npm run build-ts",
-    "start": "npm run serve",
-    "serve": "node dist/server.js",
+    "start": "ts-node src/index.ts",
     "lint": "eslint src/**/*.ts --ext ts"
   }
 }

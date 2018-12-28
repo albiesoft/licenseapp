@@ -36,19 +36,8 @@ const startServer = () => __awaiter(this, void 0, void 0, function* () {
             ssl: true,
         },
         entities: [
-            "src/entity/**/*.ts"
-        ],
-        migrations: [
-            "src/migration/**/*.ts"
-        ],
-        subscribers: [
-            "src/subscriber/**/*.ts"
-        ],
-        cli: {
-            "entitiesDir": "src/entity",
-            "migrationsDir": "src/migration",
-            "subscribersDir": "src/subscriber"
-        }
+            "dist/entity/**/*.js"
+        ]
     });
     server.applyMiddleware({ app });
     app.listen({ port: process.env.PORT || 4000 }, () => console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`));
