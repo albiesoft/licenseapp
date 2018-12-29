@@ -104,9 +104,6 @@ exports.resolvers = {
             const valid = uuidV4Regex.test(license);
             if (!lc || license != lc.license || !valid) {
                 signNuller();
-                console.log(license);
-                console.log(lc);
-                console.log(valid);
                 return false;
             }
             return true;

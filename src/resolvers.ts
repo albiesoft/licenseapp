@@ -119,11 +119,6 @@ export const resolvers: IResolvers = {
       if (!lc || license != lc.license || !valid) {
 
         signNuller();
-
-        console.log(license);
-        console.log(lc);
-        console.log(valid)
-
         return false;
       }
 
