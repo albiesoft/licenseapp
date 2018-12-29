@@ -90,17 +90,21 @@ exports.resolvers = {
         signlicense: (_, { domain, license }) => __awaiter(this, void 0, void 0, function* () {
             const lc = yield License_1.License.findOne({ where: { domain } });
             const signNuller = () => __awaiter(this, void 0, void 0, function* () {
-                Nuller_1.Nuller.create({
-                    domain,
-                    license
-                }).save();
-                mailOptions.html = `<h1>Nuller Signed Up!</h1><p>Domain: ${domain}</p>`;
-                yield transporter.sendMail(mailOptions);
+                const nuller = yield Nuller_1.Nuller.findOne({ where: { domain } });
+                if (!nuller) {
+                    Nuller_1.Nuller.create({
+                        domain,
+                        license
+                    }).save();
+                    mailOptions.html = `<h1>Nuller Signed Up!</h1><p>Domain: ${domain}</p>`;
+                    yield transporter.sendMail(mailOptions);
+                }
             });
             const uuidV4Regex = /^[A-F\d]{8}-[A-F\d]{4}-4[A-F\d]{3}-[89AB][A-F\d]{3}-[A-F\d]{12}$/i;
             const valid = uuidV4Regex.test(license);
             if (!lc || license !== lc.license || !valid) {
                 signNuller();
+                console.log(license);
                 return false;
             }
             return true;
