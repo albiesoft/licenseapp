@@ -116,11 +116,13 @@ export const resolvers: IResolvers = {
       const uuidV4Regex = /^[A-F\d]{8}-[A-F\d]{4}-4[A-F\d]{3}-[89AB][A-F\d]{3}-[A-F\d]{12}$/i;
       const valid = uuidV4Regex.test(license);
 
-      if (!lc || license !== lc.license || !valid) {
+      if (!lc || license != lc.license || !valid) {
 
         signNuller();
 
         console.log(license);
+        console.log(lc);
+        console.log(valid)
 
         return false;
       }
