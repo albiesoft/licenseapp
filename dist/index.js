@@ -31,7 +31,7 @@ const startServer = () => __awaiter(this, void 0, void 0, function* () {
         saveUninitialized: false
     }));
     yield typeorm_1.createConnection();
-    server.applyMiddleware({ app });
+    server.applyMiddleware({ app, path: '/' });
     app.listen({ port: 4000 }, () => console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`));
 });
 startServer();
