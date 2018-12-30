@@ -21,7 +21,8 @@ const startServer = () => __awaiter(this, void 0, void 0, function* () {
     const server = new apollo_server_express_1.ApolloServer({
         typeDefs: typeDefs_1.typeDefs,
         resolvers: resolvers_1.resolvers,
-        context: ({ req }) => ({ req })
+        context: ({ req }) => ({ req }),
+        playground: false,
     });
     const app = express_1.default();
     app.use(express_session_1.default({

@@ -11,7 +11,8 @@ const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: ({ req } : any) => ({ req })
+    context: ({ req } : any) => ({ req }),
+    playground: false,
   });
 
   const app = express();
