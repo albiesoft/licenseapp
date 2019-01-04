@@ -18,7 +18,7 @@ export const typeDefs = gql`
 
   type Query {
     me: User
-    mylicense: License
+    mylicense(domain: String!): License
   }
 
   type Mutation {

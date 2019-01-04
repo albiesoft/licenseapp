@@ -19,7 +19,7 @@ exports.typeDefs = apollo_server_express_1.gql `
 
   type Query {
     me: User
-    mylicense: License
+    mylicense(domain: String!): License
   }
 
   type Mutation {

@@ -32,8 +32,8 @@ export const resolvers: IResolvers = {
 
       return await User.findOne(req.session.userId);
     },
-    mylicense: async (_, { license }) => {
-      return await License.findOne({where: {license}});
+    mylicense: async (_, { domain }) => {
+      return await License.findOne({where: {domain}});
     }
   },
   Mutation: {

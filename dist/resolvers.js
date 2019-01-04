@@ -42,8 +42,8 @@ exports.resolvers = {
             }
             return yield User_1.User.findOne(req.session.userId);
         }),
-        mylicense: (_, { license }) => __awaiter(this, void 0, void 0, function* () {
-            return yield License_1.License.findOne({ where: { license } });
+        mylicense: (_, { domain }) => __awaiter(this, void 0, void 0, function* () {
+            return yield License_1.License.findOne({ where: { domain } });
         })
     },
     Mutation: {
